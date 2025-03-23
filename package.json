@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://unforced.github.io/GarrettGraham",
+  "homepage": "https://unforced-dev.github.io/GarrettGraham",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
