@@ -1,12 +1,26 @@
-
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const location = useLocation();
   const currentYear = new Date().getFullYear();
+  
+  const footerRef = React.useRef<HTMLDivElement>(null);
+  
+  React.useEffect(() => {
+    const footers = document.querySelectorAll('footer');
+    if (footers.length > 1) {
+      for (let i = 1; i < footers.length; i++) {
+        if (footers[i] !== footerRef.current) {
+          footers[i].remove();
+        }
+      }
+    }
+  }, [location.pathname]);
 
   return (
-    <footer className="bg-stone-800 text-white pt-16 pb-8" id="contact">
+    <footer className="bg-stone-800 text-white pt-16 pb-8" id="contact" ref={footerRef}>
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           <div className="space-y-4">
